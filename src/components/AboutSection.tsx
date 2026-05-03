@@ -3,10 +3,10 @@ import { User, Cpu, Zap, MessageSquare, Award, Calendar, MapPin } from 'lucide-r
 
 // ✅ Updated Timeline (as per your resume)
 const timeline = [
+  { year: '2025', event: 'Java Full Stack Training — HefShine, Pune' },
   { year: '2025', event: 'B.E. Computer Science — Completed' },
-  { year: '2024', event: 'Java Full Stack Training — HefShine, Pune' },
-  { year: '2023', event: 'Built Full Stack Projects (Spring Boot + React)' },
-  { year: '2021', event: 'Diploma in Computer Engineering — Completed' },
+  { year: '2024', event: 'Built Full Stack Projects (Spring Boot + React)' },
+  
 ];
 
 // ✅ Updated Values (realistic)

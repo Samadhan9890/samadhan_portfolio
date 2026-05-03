@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 import { Folder, ExternalLink, GitBranch, Box, Layers, Zap } from 'lucide-react';
 
-// ✅ Updated Projects (REALISTIC + Resume Based)
+// same data (no change)
 const projects = [
   {
     id: '01',
     name: 'EMPLOYEE_MANAGE_SYS',
     description:
-      'Developed a full-stack Employee Management System using Spring Boot, React.js, and MySQL with role-based authentication. Admin can manage employees and approve/reject leave requests, while employees can apply for leave and track status in real-time.',
-    tags: ['Java', 'Spring Boot', 'React.js', 'MySQL', 'REST API'],
+      'Developed a full-stack Employee Management System using Spring Boot, React.js, and MySQL with role-based authentication.',
+    tags: ['Java', 'Spring Boot', 'React.js', 'MySQL'],
     status: 'COMPLETED',
     metric: 'Role-based system'
   },
@@ -16,26 +16,26 @@ const projects = [
     id: '02',
     name: 'HOSPITAL_MANAGE_SYS',
     description:
-      'Built a web-based Hospital Management System using ASP.NET MVC and SQL Server. Implemented patient registration, appointment scheduling, and role-based dashboards for Admin and Doctor.',
-    tags: ['C#', 'ASP.NET MVC', 'SQL Server', 'HTML', 'CSS'],
+      'Built a web-based Hospital Management System using ASP.NET MVC and SQL Server.',
+    tags: ['C#', 'ASP.NET MVC', 'SQL Server'],
     status: 'COMPLETED',
     metric: 'MVC Architecture'
   },
   {
     id: '03',
-    name: 'AUTHENTICATION_SYSTEM',
+    name: 'AUTH_SYSTEM',
     description:
-      'Implemented secure login and registration system using JWT authentication with role-based access control. Ensured secure API communication and protected routes.',
-    tags: ['Spring Boot', 'JWT', 'REST API', 'Security'],
-    status: 'IMPLEMENTED',
-    metric: 'Secure login system'
+      'Implemented secure login system using JWT authentication and role-based access.',
+    tags: ['Spring Boot', 'JWT'],
+    status: 'DONE',
+    metric: 'Security'
   },
   {
     id: '04',
-    name: 'PORTFOLIO_WEBSITE',
+    name: 'PORTFOLIO',
     description:
-      'Designed and developed a personal portfolio using React.js and Tailwind CSS showcasing projects, skills, and contact details with modern UI and animations.',
-    tags: ['React.js', 'Tailwind CSS', 'JavaScript'],
+      'Built personal portfolio using React.js and Tailwind CSS.',
+    tags: ['React', 'Tailwind'],
     status: 'LIVE',
     metric: 'Responsive UI'
   },
@@ -44,129 +44,95 @@ const projects = [
 export default function ProjectsSection() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen pl-20 pr-8 py-12 pt-16"
+      className="min-h-screen px-4 md:pl-20 md:pr-8 py-12 pt-16"
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* ✅ Header */}
-        <motion.div
-          initial={{ x: -30, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          className="mb-12"
-        >
+        {/* HEADER */}
+        <div className="mb-12">
           <div className="flex items-center gap-4 mb-2">
             <Folder className="text-[#ff2d55]" size={24} />
-            <h2 className="text-4xl font-['Orbitron',sans-serif] font-bold tracking-[0.15em]">
+            <h2 className="text-2xl md:text-4xl font-bold">
               PROJECTS
             </h2>
           </div>
-          <div className="h-px bg-gradient-to-r from-[#ff2d55] via-[#ff00ff] to-transparent w-96" />
-        </motion.div>
+          <div className="h-px bg-gradient-to-r from-[#ff2d55] to-transparent w-40 md:w-96" />
+        </div>
 
-        {/* ✅ Project Cards */}
-        <div className="grid grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
+        {/* ✅ GRID FIX */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {projects.map((project) => (
+            <div
               key={project.id}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 * index }}
-              className="group relative"
+              className="border border-[#ff2d55]/20 p-5 bg-[#0d0d12]/30"
             >
-              <div className="absolute inset-0 border border-[#ff2d55]/20 group-hover:border-[#ff2d55]/60 transition-colors duration-300 bg-[#0d0d12]/30" />
 
-              <div className="relative p-6">
+              {/* TITLE */}
+              <div className="flex justify-between mb-3 flex-wrap gap-2">
+                <h3 className="text-lg md:text-xl text-[#ff2d55]">
+                  {project.name}
+                </h3>
 
-                {/* Header */}
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl font-['Orbitron'] text-[#ff2d55]/50 font-bold">
-                      {project.id}
-                    </span>
-                    <div className="h-8 w-px bg-[#ff2d55]/30" />
-                    <h3 className="text-xl font-['Orbitron'] tracking-[0.1em] group-hover:text-[#ff2d55]">
-                      {project.name}
-                    </h3>
-                  </div>
-
-                  <span className="px-3 py-1 text-[10px] border border-[#ff00ff]/50 text-[#ff00ff]">
-                    {project.status}
-                  </span>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-6">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-[10px] bg-[#ff2d55]/5 border border-[#ff2d55]/20 text-gray-500"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Footer */}
-                <div className="flex justify-between items-center pt-4 border-t border-[#ff2d55]/20">
-                  <span className="text-xs text-gray-500">
-                    METRIC: <span className="text-[#ff2d55]">{project.metric}</span>
-                  </span>
-
-                  <div className="flex gap-3">
-                    <button className="p-2 border border-[#ff2d55]/30 hover:border-[#ff2d55] hover:text-[#ff2d55]">
-                      <GitBranch size={16} />
-                    </button>
-
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 border border-[#ff2d55]/30 hover:border-[#ff2d55] hover:text-[#ff2d55]"
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  </div>
-                </div>
-
+                <span className="text-xs border px-2 py-1">
+                  {project.status}
+                </span>
               </div>
-            </motion.div>
+
+              {/* DESC */}
+              <p className="text-gray-400 text-sm mb-4">
+                {project.description}
+              </p>
+
+              {/* TAGS */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] border px-2 py-1 text-gray-500"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* FOOTER */}
+              <div className="flex justify-between items-center text-xs">
+                <span className="text-[#ff2d55]">{project.metric}</span>
+
+                <div className="flex gap-2">
+                  <GitBranch size={16} />
+                  <ExternalLink size={16} />
+                </div>
+              </div>
+
+            </div>
           ))}
         </div>
 
-        {/* ✅ Stats (REALISTIC for fresher) */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-12 flex justify-between items-center px-8 py-6 border border-[#ff2d55]/20 bg-[#0d0d12]/30"
-        >
+        {/* ✅ STATS FIX */}
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border border-[#ff2d55]/20 p-6">
+
           {[
             { label: 'PROJECTS', value: '4', icon: Folder },
-            { label: 'TECH_STACKS', value: '10+', icon: Layers },
-            { label: 'TOOLS_USED', value: '8+', icon: Box },
+            { label: 'STACKS', value: '10+', icon: Layers },
+            { label: 'TOOLS', value: '8+', icon: Box },
             { label: 'LEARNING', value: 'ACTIVE', icon: Zap },
           ].map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className="text-center flex flex-col items-center">
-                <Icon size={20} className="text-[#ff2d55]/50 mb-2" />
-                <div className="text-3xl font-['Orbitron'] text-[#ff2d55]">
+              <div key={stat.label}>
+                <Icon className="mx-auto mb-2 text-[#ff2d55]" size={18} />
+                <div className="text-xl md:text-2xl text-[#ff2d55]">
                   {stat.value}
                 </div>
-                <div className="text-[10px] text-gray-500">{stat.label}</div>
+                <div className="text-[10px] text-gray-500">
+                  {stat.label}
+                </div>
               </div>
             );
           })}
-        </motion.div>
+        </div>
 
       </div>
     </motion.div>

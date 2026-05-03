@@ -3,7 +3,7 @@ import { User, Cpu, Zap, MessageSquare, Award, Calendar, MapPin } from 'lucide-r
 
 // ✅ Updated Timeline (as per your resume)
 const timeline = [
-  { year: '2025', event: 'Java Full Stack Training — HefShine, Pune' },
+  { year: '2025', event: 'Java Full Stack Training Pune' },
   { year: '2025', event: 'B.E. Computer Science Engineering ' },
   { year: '2025', event: 'Built Full Stack Projects (Spring Boot + React)' },
   
@@ -94,7 +94,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 text-sm">
                   <Calendar size={14} className="text-[#ff00ff]" />
-                  <span>Fresher | Open to Work</span>
+                  <span>Open to Work</span>
                 </div>
               </div>
 

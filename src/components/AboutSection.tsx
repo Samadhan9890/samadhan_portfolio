@@ -4,8 +4,11 @@ import { User, Cpu, Zap, MessageSquare, Award, Calendar, MapPin } from 'lucide-r
 // ✅ Updated Timeline (as per your resume)
 const timeline = [
   { year: '2025', event: 'Java Full Stack Training — HefShine, Pune' },
-  { year: '2025', event: 'B.E. Computer Science — Completed' },
-  { year: '2024', event: 'Built Full Stack Projects (Spring Boot + React)' },
+  { year: '2025', event: 'B.E. Computer Science Engineering ' },
+  { year: '2025', event: 'Built Full Stack Projects (Spring Boot + React)' },
+  
+  { year: '2024', event: 'Built Full Stack Projects (Asp .Net MVC5 + SQL)' },
+  
   
 ];
 
@@ -67,7 +70,7 @@ export default function AboutSection() {
 
               <div className="space-y-6">
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer</span> 
+                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer </span> 
                   with hands-on experience in building web applications using 
                   <span className="text-[#ff00ff]"> Spring Boot, React.js, and ASP.NET MVC</span>.
                 </p>

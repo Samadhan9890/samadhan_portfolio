@@ -1,18 +1,13 @@
 import { motion } from 'framer-motion';
 import { User, Cpu, Zap, MessageSquare, Award, Calendar, MapPin } from 'lucide-react';
 
-// ✅ Updated Timeline (as per your resume)
 const timeline = [
   { year: '2025', event: 'Java Full Stack Training Pune' },
-  { year: '2025', event: 'B.E. Computer Science Engineering ' },
+  { year: '2025', event: 'B.E. Computer Science Engineering' },
   { year: '2025', event: 'Built Full Stack Projects (Spring Boot + React)' },
-  
-  { year: '2024', event: 'Built Full Stack Projects (Asp .Net MVC5 + SQL)' },
-  
-  
+  { year: '2024', event: 'Built Full Stack Projects (ASP.NET MVC + SQL)' },
 ];
 
-// ✅ Updated Values (realistic)
 const values = [
   { 
     icon: Cpu, 
@@ -38,11 +33,11 @@ export default function AboutSection() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen pl-20 pr-8 py-12 pt-16"
+      className="min-h-screen px-4 md:px-20 py-12 pt-16"
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* ✅ Header */}
+        {/* Header */}
         <motion.div 
           initial={{ x: -30, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -50,44 +45,44 @@ export default function AboutSection() {
         >
           <div className="flex items-center gap-4 mb-2">
             <User className="text-[#ff2d55]" size={24} />
-            <h2 className="text-4xl font-['Orbitron'] font-bold tracking-[0.15em]">
+            <h2 className="text-2xl md:text-4xl font-['Orbitron'] font-bold tracking-[0.15em]">
               ABOUT ME
             </h2>
           </div>
           <div className="h-px bg-gradient-to-r from-[#ff2d55] via-[#ff00ff] to-transparent w-96" />
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          {/* ✅ Main Bio */}
+          {/* Main Bio */}
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="col-span-2"
+            className="col-span-1 md:col-span-2"
           >
-            <div className="border border-[#ff2d55]/30 p-8 mb-8 bg-[#0d0d12]/50">
+            <div className="border border-[#ff2d55]/30 p-6 md:p-8 mb-8 bg-[#0d0d12]/50">
 
               <div className="space-y-6">
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer </span> 
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer</span> 
                   with hands-on experience in building web applications using 
                   <span className="text-[#ff00ff]"> Spring Boot, React.js, and ASP.NET MVC</span>.
                 </p>
 
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
                   I have developed projects like Employee Management System and Hospital Management System, 
                   focusing on backend development, REST APIs, and database integration.
                 </p>
 
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
                   I am passionate about learning new technologies and building real-world applications 
                   to improve my development skills.
                 </p>
               </div>
 
               {/* Location */}
-              <div className="flex gap-6 mt-6 pt-6 border-t border-[#ff2d55]/20">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 pt-6 border-t border-[#ff2d55]/20">
                 <div className="flex items-center gap-2 text-gray-500 text-sm">
                   <MapPin size={14} className="text-[#ff00ff]" />
                   <span>Pune, India</span>
@@ -98,8 +93,8 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* ✅ Stats (realistic) */}
-              <div className="grid grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#ff2d55]/20">
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#ff2d55]/20">
                 {[
                   { value: '0-1', label: 'YEARS EXP' },
                   { value: '4+', label: 'PROJECTS' },
@@ -107,7 +102,7 @@ export default function AboutSection() {
                   { value: '2', label: 'CERTIFICATIONS' },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-['Orbitron'] text-[#ff2d55]">
+                    <div className="text-xl md:text-2xl font-['Orbitron'] text-[#ff2d55]">
                       {stat.value}
                     </div>
                     <div className="text-[10px] text-gray-500 mt-1">
@@ -118,8 +113,8 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* ✅ Timeline */}
-            <div className="relative pl-8">
+            {/* Timeline */}
+            <div className="relative pl-6 md:pl-8">
               <div className="absolute left-0 top-2 bottom-2 w-px bg-[#ff2d55]" />
 
               {timeline.map((item, index) => (
@@ -130,12 +125,12 @@ export default function AboutSection() {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="relative py-4"
                 >
-                  <div className="absolute -left-[33px] top-5 w-3 h-3 bg-[#ff2d55]" />
-                  <div className="flex gap-4">
-                    <span className="text-lg font-['Orbitron'] text-[#ff2d55]">
+                  <div className="absolute -left-[25px] md:-left-[33px] top-5 w-3 h-3 bg-[#ff2d55]" />
+                  <div className="flex flex-col sm:flex-row gap-1 sm:gap-4">
+                    <span className="text-sm md:text-lg font-['Orbitron'] text-[#ff2d55]">
                       {item.year}
                     </span>
-                    <span className="text-gray-400 text-sm">
+                    <span className="text-gray-400 text-xs md:text-sm">
                       {item.event}
                     </span>
                   </div>
@@ -144,7 +139,7 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* ✅ Values */}
+          {/* Values */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

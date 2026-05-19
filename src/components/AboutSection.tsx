@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { User, Cpu, Zap, MessageSquare, Award, Calendar, MapPin } from 'lucide-react';
+import { User, Cpu, Zap, MessageSquare, Calendar, MapPin } from 'lucide-react';
 
 const timeline = [
   { year: '2025', event: 'Java Full Stack Training Pune' },
@@ -9,79 +9,75 @@ const timeline = [
 ];
 
 const values = [
-  { 
-    icon: Cpu, 
-    title: 'BACKEND DEVELOPMENT', 
-    description: 'Building secure and scalable backend applications using Java, Spring Boot, and REST APIs.' 
+  {
+    icon: Cpu,
+    title: 'BACKEND DEVELOPMENT',
+    description: 'Building secure and scalable backend applications using Java, Spring Boot, and REST APIs.'
   },
-  { 
-    icon: Zap, 
-    title: 'FULL STACK DEVELOPMENT', 
-    description: 'Developing complete web applications using React, HTML, CSS, and modern frameworks.' 
+  {
+    icon: Zap,
+    title: 'FULL STACK DEVELOPMENT',
+    description: 'Developing complete web applications using React, HTML, CSS, and modern frameworks.'
   },
-  { 
-    icon: MessageSquare, 
-    title: 'CONTINUOUS LEARNING', 
-    description: 'Actively improving skills by building projects and learning new technologies.' 
+  {
+    icon: MessageSquare,
+    title: 'CONTINUOUS LEARNING',
+    description: 'Actively improving skills by building projects and learning new technologies.'
   },
 ];
 
 export default function AboutSection() {
   return (
     <motion.div
+      id="about"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen px-4 md:px-20 py-12 pt-16"
+      className="min-h-screen px-4 sm:px-6 md:px-20 py-12 pt-16"
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ x: -30, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           className="mb-12"
         >
-          <div className="flex items-center gap-4 mb-2">
+          <div className="flex flex-wrap items-center gap-4 mb-2">
             <User className="text-[#ff2d55]" size={24} />
-            <h2 className="text-2xl md:text-4xl font-['Orbitron'] font-bold tracking-[0.15em]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-['Orbitron'] font-bold tracking-[0.15em]">
               ABOUT ME
             </h2>
           </div>
-          <div className="h-px bg-gradient-to-r from-[#ff2d55] via-[#ff00ff] to-transparent w-96" />
+          <div className="h-px bg-gradient-to-r from-[#ff2d55] via-[#ff00ff] to-transparent w-full max-w-[24rem]" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          {/* Main Bio */}
+        <div className="grid grid-cols-1 xl:grid-cols-[2.2fr_1fr] gap-8">
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="col-span-1 md:col-span-2"
+            className="col-span-1"
           >
-            <div className="border border-[#ff2d55]/30 p-6 md:p-8 mb-8 bg-[#0d0d12]/50">
-
+            <div className="border border-[#ff2d55]/30 p-6 md:p-8 mb-8 bg-[#0d0d12]/50 rounded-3xl">
               <div className="space-y-6">
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer</span> 
-                  with hands-on experience in building web applications using 
+                  I am an <span className="text-[#ff2d55]">Aspiring Java & .NET Full Stack Developer</span>
+                  with hands-on experience in building web applications using
                   <span className="text-[#ff00ff]"> Spring Boot, React.js, and ASP.NET MVC</span>.
                 </p>
 
                 <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                  I have developed projects like Employee Management System and Hospital Management System, 
+                  I have developed projects like Employee Management System and Hospital Management System,
                   focusing on backend development, REST APIs, and database integration.
                 </p>
 
                 <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                  I am passionate about learning new technologies and building real-world applications 
+                  I am passionate about learning new technologies and building real-world applications
                   to improve my development skills.
                 </p>
               </div>
 
-              {/* Location */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 pt-6 border-t border-[#ff2d55]/20">
                 <div className="flex items-center gap-2 text-gray-500 text-sm">
                   <MapPin size={14} className="text-[#ff00ff]" />
@@ -93,7 +89,6 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#ff2d55]/20">
                 {[
                   { value: '0-1', label: 'YEARS EXP' },
@@ -101,7 +96,7 @@ export default function AboutSection() {
                   { value: '10+', label: 'TECH SKILLS' },
                   { value: '2', label: 'CERTIFICATIONS' },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center">
+                  <div key={stat.label} className="text-center min-w-0">
                     <div className="text-xl md:text-2xl font-['Orbitron'] text-[#ff2d55]">
                       {stat.value}
                     </div>
@@ -113,10 +108,8 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Timeline */}
             <div className="relative pl-6 md:pl-8">
               <div className="absolute left-0 top-2 bottom-2 w-px bg-[#ff2d55]" />
-
               {timeline.map((item, index) => (
                 <motion.div
                   key={item.year}
@@ -125,7 +118,7 @@ export default function AboutSection() {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="relative py-4"
                 >
-                  <div className="absolute -left-[25px] md:-left-[33px] top-5 w-3 h-3 bg-[#ff2d55]" />
+                  <div className="absolute -left-[25px] md:-left-[33px] top-5 w-3 h-3 bg-[#ff2d55] rounded-full" />
                   <div className="flex flex-col sm:flex-row gap-1 sm:gap-4">
                     <span className="text-sm md:text-lg font-['Orbitron'] text-[#ff2d55]">
                       {item.year}
@@ -139,7 +132,6 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Values */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -159,7 +151,7 @@ export default function AboutSection() {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="p-4 border border-[#ff2d55]/20 bg-[#0d0d12]/30"
+                  className="p-4 border border-[#ff2d55]/20 bg-[#0d0d12]/30 rounded-3xl min-h-[130px]"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <Icon size={20} className="text-[#ff2d55]" />
@@ -167,26 +159,24 @@ export default function AboutSection() {
                       {value.title}
                     </span>
                   </div>
-                  <p className="text-gray-500 text-xs">
+                  <p className="text-gray-500 text-xs leading-relaxed">
                     {value.description}
                   </p>
                 </motion.div>
               );
             })}
 
-            {/* Availability */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="mt-8 p-4 border border-[#00ff88]/30 bg-[#00ff88]/5"
+              className="mt-8 p-4 border border-[#00ff88]/30 bg-[#00ff88]/5 rounded-3xl"
             >
               <span className="text-sm text-[#00ff88]">
                 AVAILABLE FOR OPPORTUNITIES
               </span>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
     </motion.div>

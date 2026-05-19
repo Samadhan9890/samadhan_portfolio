@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Cpu, Activity } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
-// same data (no change)
 const skills = [
   { name: 'Java & Spring Boot', level: 85, category: 'core' },
   { name: 'C# & ASP.NET MVC', level: 80, category: 'core' },
@@ -26,64 +25,55 @@ const chartData = [
 export default function SkillsSection() {
   return (
     <motion.div
-      className="min-h-screen px-4 md:pl-20 md:pr-8 py-12 pt-16"
+      id="skills"
+      className="min-h-screen px-4 sm:px-6 md:px-20 py-12 pt-16"
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* HEADER */}
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-2">
+          <div className="flex flex-wrap items-center gap-4 mb-2">
             <Cpu className="text-[#ff2d55]" size={24} />
-            <h2 className="text-2xl md:text-4xl font-bold">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               TECHNICAL SKILLS
             </h2>
           </div>
-          <div className="h-px bg-gradient-to-r from-[#ff2d55] to-transparent w-40 md:w-96" />
+          <div className="h-px bg-gradient-to-r from-[#ff2d55] to-transparent w-full max-w-[18rem]" />
         </div>
 
-        {/* ✅ GRID FIX */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          {/* SKILLS */}
           <div className="md:col-span-2 space-y-4">
-            {skills.map((skill, index) => (
-              <div key={skill.name}>
-                
-                <div className="flex justify-between mb-1">
-                  <span className="text-sm text-gray-300">
+            {skills.map((skill) => (
+              <div key={skill.name} className="min-w-0">
+                <div className="flex justify-between mb-1 gap-4">
+                  <span className="text-sm sm:text-base text-gray-300 truncate">
                     {skill.name}
                   </span>
-                  <span className="text-xs text-[#ff2d55]">
+                  <span className="text-xs sm:text-sm text-[#ff2d55]">
                     {skill.level}%
                   </span>
                 </div>
 
-                <div className="h-2 bg-[#ff2d55]/10">
+                <div className="h-2 bg-[#ff2d55]/10 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[#ff2d55] to-[#ff00ff]"
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
-
               </div>
             ))}
           </div>
 
-          {/* CHART */}
-          <div className="border border-[#ff2d55]/30 p-4 md:p-6 bg-[#0d0d12]/50">
-
-            <h3 className="text-xs text-gray-400 mb-4 text-center flex items-center justify-center gap-2">
+          <div className="border border-[#ff2d55]/30 p-4 md:p-6 bg-[#0d0d12]/50 overflow-hidden rounded-3xl">
+            <h3 className="text-xs sm:text-sm text-gray-400 mb-4 text-center flex items-center justify-center gap-2">
               <Activity size={14} />
               SKILL PROGRESSION
             </h3>
 
-            {/* ✅ HEIGHT FIX */}
-            <div className="h-48 md:h-64">
+            <div className="h-52 md:h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={chartData}>
                   <XAxis dataKey="year" stroke="#666" fontSize={10} />
                   <YAxis hide />
-
                   <Area
                     type="monotone"
                     dataKey="skill"
@@ -95,8 +85,7 @@ export default function SkillsSection() {
               </ResponsiveContainer>
             </div>
 
-            {/* STATS */}
-            <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-[#ff2d55]/20">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4 pt-4 border-t border-[#ff2d55]/20">
               {[
                 { label: 'BACKEND', value: '85' },
                 { label: 'FRONTEND', value: '78' },
@@ -112,11 +101,9 @@ export default function SkillsSection() {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
 
-        {/* TECH STACK */}
         <div className="mt-12">
           <h3 className="text-xs text-gray-500 mb-4">
             TECH STACK
@@ -129,7 +116,7 @@ export default function SkillsSection() {
             ].map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-2 text-[10px] md:text-xs border border-[#ff2d55]/30 text-gray-400"
+                className="px-3 py-2 text-[10px] sm:text-xs border border-[#ff2d55]/30 text-gray-400 rounded-full"
               >
                 {tech}
               </span>

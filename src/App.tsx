@@ -78,9 +78,11 @@ export default function App() {
       <HUDOverlay activeSection={activeSection} />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       
-      <main className="relative z-10">
+      <main className="relative z-10 w-full md:ml-20 px-4 sm:px-6 pt-24 md:pt-0 pb-16 md:pb-0 overflow-x-hidden">
         <AnimatePresence mode="wait">
-          {activeSection === 'hero' && <HeroSection key="hero" />}
+          {activeSection === 'hero' && (
+            <HeroSection key="hero" onViewProjects={() => setActiveSection('projects')} />
+          )}
           {activeSection === 'skills' && <SkillsSection key="skills" />}
           {activeSection === 'projects' && <ProjectsSection key="projects" />}
           {activeSection === 'about' && <AboutSection key="about" />}

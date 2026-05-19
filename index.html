@@ -17,10 +17,16 @@
         --bg-panel: #0d0d12;
       }
       * { box-sizing: border-box; }
+      html, body, #root {
+        min-height: 100%;
+        overflow-x: hidden;
+      }
       body {
         margin: 0;
         background: var(--bg-dark);
         overflow-x: hidden;
+        overscroll-behavior-x: none;
+        min-height: 100vh;
       }
       /* Custom scrollbar */
       ::-webkit-scrollbar { width: 4px; }
